@@ -11,7 +11,7 @@ public class cubescript : MonoBehaviour
 
     bool playerWon = false;
 
-            void Start()
+    void Start()
     {
         startPosition = transform.position;
         startRotation = transform.rotation;
@@ -21,7 +21,7 @@ public class cubescript : MonoBehaviour
     void Update(){
         if (Input.GetKey(KeyCode.Space)) {
             force = force + 3f;
-            }
+        }
        
         if (Input.GetKeyUp(KeyCode.Space)) {
             Rigidbody rb = gameObject.GetComponent<Rigidbody>();
