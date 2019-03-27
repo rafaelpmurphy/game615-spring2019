@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
 
     private int keyCount;
     public GameObject PillarofLight;
+    public bool polight = false;
     public bool Hunting = false;
     public bool Patroling = true;
     public Text countText;
@@ -72,18 +73,31 @@ public class PlayerController : MonoBehaviour
         amountToMove.y = yVelocity;
         cc.Move(amountToMove);
         previousIsGroundedValue = cc.isGrounded;
-    
+
         if (boost)
+        {
+            moveSpeed = 12f;
+            boostCool = boostCool - 1;
+
+            if (boostCool == 0)
             {
-                moveSpeed = 12f;
-                boostCool = boostCool - 1;
-                if (boostCool == 0)
-                {
-                    boost = false;
-                    moveSpeed = 6f;
-                }       
+                boost = false;
+                moveSpeed = 6f;
+            }
+
+        }
+        if (frozen)
+        {
+            jumpForce = 1.5f;
+            frozenCool = frozenCool - 1;
+            if (frozenCool == 0)
+            {
+                frozen = false;
+                jumpForce = .5f;
+            }
         }
     }
+        
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Key"))
@@ -93,7 +107,7 @@ public class PlayerController : MonoBehaviour
             SetkeyCountText();
         }
         if (other.gameObject.CompareTag("speedBoost"))
-        {   
+        {
             other.gameObject.SetActive(false);
             boost = true;
             boostCool = 300;
@@ -117,15 +131,15 @@ public class PlayerController : MonoBehaviour
     }
     void SetkeyCountText()
     {
-
         if (keyCount <= 0)
         {
             countText.text = "Find the Pillar of Light to Escape!";
             PillarofLight.SetActive(true);
+            polight = true;
         }
         else
         {
-            countText.text = "Keys Remaining: " + keyCount.ToString();
+            countText.text = "Cubes Remaining: " + keyCount.ToString();
         }
     }
 }

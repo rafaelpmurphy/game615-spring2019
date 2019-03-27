@@ -700,7 +700,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &642460957
 Transform:
   m_ObjectHideFlags: 0
@@ -955,7 +955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &799601438
 Transform:
   m_ObjectHideFlags: 0
@@ -1046,8 +1046,8 @@ MonoBehaviour:
   m_text: "You have been pulled into an empty dreamspace by a carnivorous Entity.
     \ You cannot fight it, avoid it at all costs.  Your only chance is to collect
     three golden cubes to escape.  \nFind mysterious orbs of different colors to temporarily
-    increase your speed (Orange), freeze the Entity (Blue), or become invisible (Black).\nMove
-    with AWSD or Arrow Keys and Jump with Space Bar."
+    increase your speed (Orange) and jumping ability (Blue).\nMove with AWSD or Arrow
+    Keys and Jump with Space Bar."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 6.35
+  m_fontSize: 6.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1116,10 +1116,10 @@ MonoBehaviour:
   m_margin: {x: 12.7212925, y: -4.2734013, z: 18.114677, w: -3.1952124}
   m_textInfo:
     textComponent: {fileID: 1032691276}
-    characterCount: 374
+    characterCount: 346
     spriteCount: 0
-    spaceCount: 66
-    wordCount: 63
+    spaceCount: 62
+    wordCount: 59
     linkCount: 0
     lineCount: 7
     pageCount: 1

@@ -679,10 +679,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Your consciousness gives the psychological equivalent of a gasp for air
-    as you rise through the pillar of light.  \nThe oppressive terror of the Entity
-    soon melts away and is soon forgotten as your mind dances in the sunlight and
-    clouds of bright dreams"
+  m_Text: "Your consciousness takes the psychological equivalent of a gulp of air
+    as you rise from the pillar of light.  \nThe oppressive terror of the Entity melts
+    away and is soon forgotten as your mind dances in the sunlight and clouds of bright
+    dreams"
 --- !u!222 &898853106
 CanvasRenderer:
   m_ObjectHideFlags: 0

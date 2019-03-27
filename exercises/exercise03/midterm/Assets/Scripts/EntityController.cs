@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class EntityController : MonoBehaviour
 {
+    public GameObject player;
     public float lookRadius = 10f;
     Transform target;
     NavMeshAgent agent;
@@ -36,7 +37,7 @@ public class EntityController : MonoBehaviour
     {
         {
             float distance = Vector3.Distance(target.position, transform.position);
-            if (distance <= lookRadius)
+            if (distance <= lookRadius) 
             {
                 agent.SetDestination(target.position);
                 hunting = true;
