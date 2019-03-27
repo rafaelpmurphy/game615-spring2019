@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
-    path: Assets/__DELETED_GUID_Trash/745a6b589f79b4dca8fc2a07b837e48e
+    path: 
     guid: 745a6b589f79b4dca8fc2a07b837e48e
   - enabled: 1
     path: Assets/Scenes/Menu.unity
@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 0037d9cc970c34042a32a55889cf964a
+  - enabled: 1
+    path: Assets/Scenes/LoseMenu.unity
+    guid: 51d6866cdc1ec41539561cb7d46e09f8
+  - enabled: 1
+    path: Assets/Scenes/WinMenu.unity
+    guid: 5f069101f659d4fe09fc54d55c10c6cc
   m_configObjects: {}

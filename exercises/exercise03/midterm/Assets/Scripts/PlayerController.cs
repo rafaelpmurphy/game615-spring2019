@@ -1,17 +1,19 @@
 ﻿using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 
-    //public Text keyCountText;
-    //public Text winText;
-
     private int keyCount;
-    public bool pillaroflight = false;
+    public GameObject PillarofLight;
     public bool Hunting = false;
     public bool Patroling = true;
+    public Text countText;
+    public Text winText;
+    public Text loseText;
 
     public bool boost = false;
     public int boostCool = 0;
@@ -22,10 +24,10 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     float moveSpeed = 6f;
-    float rotateSpeed = 60f;
+    float rotateSpeed = 70f;
 
     float jumpForce = .5f;
-    float gravityModifier = 0.2f;
+    float gravityModifier = 0.1f;
     float yVelocity = 0;
     bool previousIsGroundedValue;
 
@@ -36,17 +38,15 @@ public class PlayerController : MonoBehaviour
        
         rb = GetComponent<Rigidbody>();
         keyCount = 3;
-
         cc = gameObject.GetComponent<CharacterController>();
         previousIsGroundedValue = cc.isGrounded;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float hAxis = Input.GetAxis("Horizontal");
         float vAxis = Input.GetAxis("Vertical");
-
+        SetkeyCountText();
         transform.Rotate(0, hAxis * rotateSpeed * Time.deltaTime, 0);
 
         if (!cc.isGrounded)
@@ -75,11 +75,12 @@ public class PlayerController : MonoBehaviour
     
         if (boost)
             {
-                moveSpeed = moveSpeed * 2f;
+                moveSpeed = 12f;
                 boostCool = boostCool - 1;
-                if (boostCool <= 0)
+                if (boostCool == 0)
                 {
                     boost = false;
+                    moveSpeed = 6f;
                 }       
         }
     }
@@ -89,7 +90,7 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             keyCount = keyCount - 1;
-            // SetkeyCountText();
+            SetkeyCountText();
         }
         if (other.gameObject.CompareTag("speedBoost"))
         {   
@@ -109,14 +110,22 @@ public class PlayerController : MonoBehaviour
             invisible = true;
             invisibleCool = 300;
         }
+        if (other.gameObject.CompareTag("POL"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        }
     }
-    //void SetkeyCountText()
-    //{
-       // keyCountText.text = "Golden Cubes Remaining: " + keyCount.ToString();
-       // if (keyCount <= 0)
-       // {
-       //     keyCountText.text = "Find the Pillar of Light to Escape!";
-       //     pillaroflight = true;
-       // }
-    
+    void SetkeyCountText()
+    {
+
+        if (keyCount <= 0)
+        {
+            countText.text = "Find the Pillar of Light to Escape!";
+            PillarofLight.SetActive(true);
+        }
+        else
+        {
+            countText.text = "Keys Remaining: " + keyCount.ToString();
+        }
+    }
 }

@@ -8,6 +8,7 @@ TagManager:
   - invisible
   - frozen
   - speedBoost
+  - POL
   layers:
   - Default
   - TransparentFX
