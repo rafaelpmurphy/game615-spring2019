@@ -2,20 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public int Offense;
-    public int MaxOffense;
-    public int MinOffense;
+    public GameObject WinScreen;
+    public GameObject LoseScreen;
+    public GameObject Player;
 
     void Start()
     {
-
+        WinScreen.gameObject.SetActive(false);
+        LoseScreen.gameObject.SetActive(false);
     }
 
     void Update()
     {
+        if (GameManager.Offense > GameManager.MaxOffense)
+        {
+            LoseScreen.gameObject.SetActive(true);
+            Player.gameObject.SetActive(false);
+        }
+        if (GameManager.Offense < GameManager.MinOffense)
+        {
+            GameManager.Offense = GameManager.MinOffense;
+        }
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
         if (transform.position.z < 7)
@@ -57,43 +70,54 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter (Collider other)
     {
         if (other.gameObject.CompareTag("0"))
         {
-            Offense = Offense - 3;
+            //Debug.Log("Object Entered 0");
+            GameManager.Offense = GameManager.Offense - 3f;
+            Debug.Log(GameManager.Offense);
         }
-        if (other.gameObject.CompareTag("1"))
+        else if (other.gameObject.CompareTag("1"))
         {
-            Offense = Offense - 2;
+            //Debug.Log("Object Entered 1");
+            GameManager.Offense = GameManager.Offense - 2f;
+            Debug.Log(GameManager.Offense);
         }
-        if (other.gameObject.CompareTag("2"))
+        else if (other.gameObject.CompareTag("2"))
         {
-            Offense = Offense - 1;
+            //Debug.Log("Object Entered 2");
+            GameManager.Offense = GameManager.Offense - 1f;
+            Debug.Log(GameManager.Offense);
         }
-        if (other.gameObject.CompareTag("3"))
+        else if (other.gameObject.CompareTag("3"))
         {
-            Offense = Offense - 0;
+            //Debug.Log("Object Entered 3");
+            GameManager.Offense = GameManager.Offense - 0f;
+            Debug.Log(GameManager.Offense);
         }
-        if (other.gameObject.CompareTag("4"))
+        else if (other.gameObject.CompareTag("4"))
         {
-            Offense = Offense + 1;
+            //Debug.Log("Object Entered 4");
+            GameManager.Offense = GameManager.Offense + 1f;
+            Debug.Log(GameManager.Offense);
         }
-        if (other.gameObject.CompareTag("5"))
+        else if (other.gameObject.CompareTag("5"))
         {
-            Offense = Offense + 2;
+            //Debug.Log("Object Entered 5");
+            GameManager.Offense = GameManager.Offense + 2f;
+            Debug.Log(GameManager.Offense);
         }
-        if (other.gameObject.CompareTag("6"))
+        else if (other.gameObject.CompareTag("6"))
         {
-            Offense = Offense + 3;
+            //Debug.Log("Object Entered 6");
+            GameManager.Offense = GameManager.Offense + 3f;
+            Debug.Log(GameManager.Offense);
         }
-        if (Offense > MaxOffense)
+        else if (other.gameObject.CompareTag("End"))
         {
-            Offense = MaxOffense;
-        }
-        if (Offense < MinOffense)
-        {
-            Offense = MinOffense;
+            WinScreen.gameObject.SetActive(true);
+            Player.gameObject.SetActive(false);
         }
     }
 }

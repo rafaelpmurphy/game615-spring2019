@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class randcolor : MonoBehaviour
 {
-    public Color[] colors;
+    GameManager gm;
+
+    public int type;
+
+    string reaction;
     void Start()
     {
+        GameObject gmObj = GameObject.Find("GameManager");
+        gm = gmObj.GetComponent<GameManager>();
+
         Renderer rend = GetComponent<Renderer>();
-        Color randColor = colors[Random.Range (0,colors.Length)];
+        //type = Random.Range(0, gm.colors.Length);
+        Color randColor = gm.colors[type];
         rend.material.color = randColor;
+
+        reaction = gm.reactions[type];
     }
 
     void Update()

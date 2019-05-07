@@ -37,15 +37,15 @@ public class InstrMenu : MonoBehaviour
         {
             yield return new WaitForSeconds(0.5f);
             instText1.gameObject.SetActive(true);
-            yield return new WaitForSeconds(9);
+            yield return new WaitForSeconds(10);
             instText1.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
             instText2.gameObject.SetActive(true);
-            yield return new WaitForSeconds(9);
+            yield return new WaitForSeconds(10);
             instText2.gameObject.SetActive(false);
             yield return new WaitForSeconds(0.5f);
             instText3.gameObject.SetActive(true);
-            yield return new WaitForSeconds(9);
+            yield return new WaitForSeconds(10);
             instText3.gameObject.SetActive(false);
         }
       
